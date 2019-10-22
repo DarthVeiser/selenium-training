@@ -18,7 +18,7 @@ public class LoginScenario {
 
     @After
     public void stopDriver() {
-        driver.close();
+        driver.quit();
     }
 
     @Test
