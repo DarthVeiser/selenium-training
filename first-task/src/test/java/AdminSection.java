@@ -27,51 +27,40 @@ public class AdminSection {
     }
 
     @After
-    public void stopDriver() {
-        driverChrome.quit();
-    }
+    public void stopDriver() {driverChrome.quit();}
 
     @Test
     public void moveOnAdminSections() throws InterruptedException {
-        driverChrome.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
-        List<WebElement> sections = driverChrome.findElements(By.xpath("//ul[@id='box-apps-menu']/li"));
-        List<String> liId = new ArrayList<>();
+        driverChrome.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        int sections = driverChrome.findElements(By.xpath("//ul[@id='box-apps-menu']/li")).size();
+        System.out.println(sections);
 
-        for (WebElement element: sections) {
-            liId.add(element.getAttribute("id"));
-        }
-        Thread.sleep(1000);
-        for ( String id: liId) {
-            WebElement section = driverChrome.findElement(By.id(id));
-            System.out.println("a1");
-            section.click();
+        int elementSection = 1;
+        while (elementSection <= sections) {
             Thread.sleep(1000);
+            driverChrome.findElement(By.cssSelector("ul#box-apps-menu > li:nth-child("+ elementSection +")")).click();
 
-            System.out.println("a2");
             try {
                 WebElement main = driverChrome.findElement(By.id("main"));
-                System.out.println(main);
-
-                WebElement h1 = main.findElement(By.tagName("h1"));
-                System.out.println(h1);
+                main.findElement(By.tagName("h1"));
             } catch (NoSuchElementException ex) {
                 System.out.println("Элемент <h1> не найден ");
             }
 
-            System.out.println(id);
-            System.out.println(driverChrome.findElement(By.id(id)));
-
-            List<WebElement> subSections = driverChrome.findElement(By.id(id)).findElements(By.xpath(".//li"));
-            List<String> subLiId = new ArrayList<>();
-
-            for (WebElement subElement: subSections) {
-                subLiId.add(subElement.getAttribute("id"));
-            }
-            for (String idSub: subLiId) {
-                WebElement subSection = driverChrome.findElement(By.id(id)).findElement(By.id(idSub));
-                subSection.click();
+            int subMenu = driverChrome.findElements(By.cssSelector("ul#box-apps-menu > li:nth-child("+ elementSection +") li")).size();
+            int element = 2;
+            while (element <= subMenu) {
                 Thread.sleep(1000);
+                driverChrome.findElement(By.cssSelector("ul#box-apps-menu > li:nth-child("+ elementSection +") li:nth-child("+ element +")")).click();
+                try {
+                    WebElement main = driverChrome.findElement(By.id("main"));
+                    main.findElement(By.tagName("h1"));
+                } catch (NoSuchElementException ex) {
+                    System.out.println("Элемент <h1> не найден ");
+                }
+                element++;
             }
+            elementSection++;
         }
     }
 }
