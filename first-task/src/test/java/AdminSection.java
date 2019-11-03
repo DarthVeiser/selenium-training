@@ -37,7 +37,7 @@ public class AdminSection {
             driverChrome.findElement(By.cssSelector("ul#box-apps-menu > li:nth-child("+ elementSection +")")).click();
 
             try {
-                WebElement main = driverChrome.findElement(By.id("main"));
+                WebElement main = driverChrome.findElement(By.id("content"));
                 main.findElement(By.tagName("h1"));
             } catch (NoSuchElementException ex) {
                 System.out.println("Элемент <h1> не найден ");
@@ -49,7 +49,7 @@ public class AdminSection {
                 Thread.sleep(1000);
                 driverChrome.findElement(By.cssSelector("ul#box-apps-menu > li:nth-child("+ elementSection +") li:nth-child("+ element +")")).click();
                 try {
-                    WebElement main = driverChrome.findElement(By.id("main"));
+                    WebElement main = driverChrome.findElement(By.id("content"));
                     main.findElement(By.tagName("h1"));
                 } catch (NoSuchElementException ex) {
                     System.out.println("Элемент <h1> не найден ");
