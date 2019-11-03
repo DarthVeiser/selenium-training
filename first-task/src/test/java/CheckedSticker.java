@@ -24,15 +24,15 @@ public class CheckedSticker {
     @Test
     public void checkSticker() throws InterruptedException {
         driverChrome.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        int products = driverChrome.findElements(By.cssSelector("div#box-campaign-products div[data-id]")).size();
+        int products = driverChrome.findElements(By.cssSelector("div#box-campaign-products " +
+                "div.product.column.shadow.hover-light")).size();
 
         int product = 1;
         while (product <= products) {
             Thread.sleep(1000);
             WebElement sticker = driverChrome.findElement(By.cssSelector("div#box-campaign-products " +
-                    "div[data-id]:nth-child("+ product +")"));
-            if (sticker.findElements(By.cssSelector("div[class='sticker sale']")).size() > 0
-                    == sticker.findElements(By.cssSelector("div[class='sticker new']")).size() > 0) {
+                    "div[div.product.column.shadow.hover-light]:nth-child("+ product +")"));
+            if (sticker.findElements(By.cssSelector("div[class='sticker']")).size() > 0) {
                 AssertionError assertError = new AssertionError();
                 System.out.println("FAILED. Found an item without a sticker or with more than one sticker." +assertError.getMessage());
                 Assert.fail();
