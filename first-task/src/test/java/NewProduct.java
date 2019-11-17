@@ -15,7 +15,6 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
 public class NewProduct {
     private WebDriver driverChrome;
-    private WebDriverWait wait;
     String enName, enProdName, validFrom, validTo, prefix;
 
     @Before
