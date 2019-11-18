@@ -5,6 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/first-task.iml" filepath="$PROJECT_DIR$/.idea/modules/first-task.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/first-task.main.iml" filepath="$PROJECT_DIR$/.idea/modules/first-task.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/first-task.test.iml" filepath="$PROJECT_DIR$/.idea/modules/first-task.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ru.stqa.first-task.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ru.stqa.first-task.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ru.stqa.first-task.test.iml" filepath="$PROJECT_DIR$/.idea/modules/ru.stqa.first-task.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/selenium-traning.iml" filepath="$PROJECT_DIR$/.idea/selenium-traning.iml" />
     </modules>
   </component>

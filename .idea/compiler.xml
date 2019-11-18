@@ -4,6 +4,8 @@
     <bytecodeTargetLevel>
       <module name="first-task.main" target="1.8" />
       <module name="first-task.test" target="1.8" />
+      <module name="ru.stqa.first-task.main" target="1.8" />
+      <module name="ru.stqa.first-task.test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
